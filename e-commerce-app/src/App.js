@@ -1,4 +1,4 @@
-import { getItems } from "./services/server";
+import { getItems, updateItem } from "./services/server";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./containers/Home";
@@ -15,10 +15,10 @@ function App() {
     };
     // console.log(items);
 
-    //On-mount, execute the above function that reads the data from the firestore collection.
+    //On-mount, and when the value of [items] changes execite the above function that reads the data from the firestore collection.
     useEffect(() => {
         getData();
-    }, []);
+    }, [ ,[items]]);
 
     return (
         <BrowserRouter>
