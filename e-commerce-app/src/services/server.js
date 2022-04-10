@@ -24,7 +24,7 @@ const seedMockData = async () => {
     const resolvedPromises = await Promise.all(promises);
 };
 
-//Reads/gets the documents in the referenced collection.
+//READ (gets the documents in the referenced collection).
 export const getItems = async () => {
     //Awaits to use the data from the seedMockData function above,
     await seedMockData();
@@ -44,3 +44,10 @@ export const getItems = async () => {
     // Returning an array of items with their unique IDs.
     return data;
 };
+
+//UPDATE
+export const updateItem = (docId, record) => {
+    firestore.collection("e-commerce-items").doc(docId).update(record);
+};
+
+// updateItem("1TKSud4CMUHGSyoA7zYq", { isFav: false });
