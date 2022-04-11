@@ -23,9 +23,11 @@ const ItemCard = ({ item }) => {
                     alt=""
                 />
             </Link>
-            {/* <p>Description: {item.description}</p> */}
             <p>Price: ${item.price}</p>
-            <p>{isFav}</p>
+            <p>Size: {item.variation[0].size} Qty:{item.variation[0].qty}</p>
+            <p>Size: {item.variation[1].size} Qty:{item.variation[1].qty}</p>
+            <p>Size: {item.variation[2].size} Qty:{item.variation[2].qty}</p>
+            <p>Size: {item.variation[3].size} Qty:{item.variation[3].qty}</p>
             {/* <button onClick={handleFav}> Fav</button> */}
         </div>
     );

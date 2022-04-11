@@ -15,10 +15,10 @@ function App() {
     };
     // console.log(items);
 
-    //On-mount, and when the value of [items] changes execite the above function that reads the data from the firestore collection.
+    //On-mount execute the above function that reads the data from the firestore collection.
     useEffect(() => {
         getData();
-    }, [ ,[items]]);
+    }, []);
 
     return (
         <BrowserRouter>
