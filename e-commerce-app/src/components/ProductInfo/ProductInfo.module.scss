@@ -1,2 +1,27 @@
 .ProductInfo {
+    display: flex;
+
+    &__Container {
+        padding: 50px;
+    }
+
+    &__Image {
+        margin: 50px;
+        height: 350px;
+        // grid-column: 0 span / 1;
+    }
+
+    &__Button {
+        background-color: blue;
+        border-radius: 5px;
+        height: 30px;
+        width: 100px;
+        margin-left: 20px;
+
+        color: white;
+    }
+
+    &__Icon {
+        color: red;
+    }
 }
