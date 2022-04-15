@@ -13,12 +13,18 @@ function App() {
         const data = await getItems();
         setItems(data);
     };
-    // console.log(items);
+    // console.log(items[0].variation[0].size);
 
     //On-mount execute the above function that reads the data from the firestore collection.
     useEffect(() => {
         getData();
     }, []);
+
+    const handleChange = async (updatedRecord) => {
+        const { id, ...record } = updatedRecord;
+        await updateItem(id, record);
+        getData();
+    };
 
     return (
         <BrowserRouter>
@@ -28,7 +34,12 @@ function App() {
                 {/* Sets the product info component at the /product/param(item.id) path and passes the items object as a prop */}
                 <Route
                     path="/product/:itemId"
-                    element={<ProductInfo items={items} />}
+                    element={
+                        <ProductInfo
+                            items={items}
+                            handleChange={handleChange}
+                        />
+                    }
                 />
             </Routes>
         </BrowserRouter>
