@@ -1,0 +1,22 @@
+.Cart {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    &__Image {
+        width: 150px;
+        height: 150px;
+        margin-right: 20px;
+    }
+    &__Description {
+        font-size: 14px;
+        margin: 0px;
+    }
+    &__Delete {
+        font-size: 12px;
+        margin-top: 0px;
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

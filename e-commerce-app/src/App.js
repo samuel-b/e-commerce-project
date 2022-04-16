@@ -1,8 +1,10 @@
+import "./App.module.scss";
 import { getItems, updateItem } from "./services/server";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./containers/Home";
 import ProductInfo from "./components/ProductInfo/ProductInfo";
+import CartList from "./containers/CartList";
 
 function App() {
     //Creates a global state variable, initialsiing as an empty array.
@@ -39,6 +41,12 @@ function App() {
                             items={items}
                             handleChange={handleChange}
                         />
+                    }
+                />
+                <Route
+                    path="/cart"
+                    element={
+                        <CartList items={items} handleChange={handleChange} />
                     }
                 />
             </Routes>
