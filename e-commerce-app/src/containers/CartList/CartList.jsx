@@ -52,7 +52,7 @@ const CartList = ({ items, handleChange }) => {
                     <Cart key={index} item={item} handleChange={handleChange} />
                 );
             })}
-            <button className={styles.CartList__Button}>Proceed to Checkout</button>
+            <button className={styles.CartList__Button}>Checkout</button>
         </div>
     );
 };

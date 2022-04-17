@@ -1,11 +1,23 @@
 import styles from "./Home.module.scss";
 import ItemCard from "../../components/ItemCard/ItemCard";
+import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../../context/SearchContext";
 
 const Home = ({ items }) => {
+    const { search } = useContext(SearchContext);
+    const [filteredProducts, setFilteredProducts] = useState(items);
+
+    useEffect(() => {
+        setFilteredProducts(
+            items.filter((item) => {
+                return item.title.includes(search);
+            }),
+        );
+    }, [search, items]);
+
     return (
         <div className={styles.Home}>
-            {/* Maps through the array of objects recieved from the read function and returns the itemCard for each and throwing the item prop so it's contents can be accessed */}
-            {items.map((item) => {
+            {filteredProducts.map((item) => {
                 return <ItemCard key={item.id} item={item} />;
             })}
         </div>
