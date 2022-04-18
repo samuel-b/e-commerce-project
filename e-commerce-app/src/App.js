@@ -8,6 +8,7 @@ import ProductInfo from "./components/ProductInfo/ProductInfo";
 import CartList from "./containers/CartList";
 import NavBar from "./components/NavBar/NavBar";
 import SearchProvider from "./context/SearchContext";
+import FavList from "./containers/FavList";
 
 function App() {
     //Creates a global state variable, initialsiing as an empty array.
@@ -56,6 +57,10 @@ function App() {
                                 handleChange={handleChange}
                             />
                         }
+                    />
+                    <Route
+                        path="/favourites"
+                        element={<FavList items={items} />}
                     />
                 </Routes>
             </SearchProvider>
