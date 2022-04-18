@@ -1,8 +1,11 @@
 @use "./../../scss/partials/devices";
 
 .CartList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     @include devices.larger {
-        margin: 0 1000px;
+        margin: 0 300px;
     }
     @include devices.tablet {
         margin: 0 100px;

@@ -11,7 +11,7 @@ const Home = ({ items }) => {
     useEffect(() => {
         setFilteredProducts(
             items.filter((item) => {
-                return item.title.includes(search);
+                return item.title.toLowerCase().includes(search.toLowerCase());
             }),
         );
     }, [search, items]);
