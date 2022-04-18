@@ -1,5 +1,22 @@
+@use "./../../scss/partials/devices";
+
 .Home {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 20px;
+    margin-top: 50px;
+    display: grid;
+    gap: 15px;
+    justify-items: center;
+
+    @include devices.larger {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    @include devices.tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include devices.phone {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__FeaturedCarosel {
+        grid-row: 1 / span 2;
+    }
 }

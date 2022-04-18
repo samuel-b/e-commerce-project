@@ -19,7 +19,6 @@ function App() {
         const data = await getItems();
         setItems(data);
     };
-    // console.log(items[0].variation[0].size);
 
     //On-mount execute the above function that reads the data from the firestore collection.
     useEffect(() => {

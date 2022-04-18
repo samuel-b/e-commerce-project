@@ -4,7 +4,6 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeartCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { addItems } from "../../services/server";
 
 const ProductInfo = ({ items, handleChange }) => {
     // Destructuring the Params Object. Using itemId straight away.
@@ -86,7 +85,6 @@ const ProductInfo = ({ items, handleChange }) => {
                 );
         }
     };
-
     return (
         <div className={styles.ProductInfo}>
             <img
@@ -114,8 +112,6 @@ const ProductInfo = ({ items, handleChange }) => {
                     onClick={handleAddCart}>
                     Add to Cart
                 </button>
-                {/* <p>{`Qty: ${item.size.S}`}</p> */}
-
                 <p>{`Description: ${item.description}`}</p>
             </div>
         </div>
