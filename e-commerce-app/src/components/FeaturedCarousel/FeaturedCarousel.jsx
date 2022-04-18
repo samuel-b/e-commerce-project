@@ -11,35 +11,49 @@ const FeaturedCarousel = ({ items }) => {
     return (
         <>
             <Carousel variant="dark" fade interval={null}>
-                <Carousel.Item id={styles.FeaturedCarousel__Item}>
+                <Carousel.Item id={styles.FeaturedCarousel__Item1}>
                     <h2>Featured</h2>
-                    <h4>{items[0].title}</h4>
+                    <h5>{items[0].title}</h5>
                     <Link to={`/product/${items[0].id}`}>
                         <img
-                            id={styles.FeaturedCarousel__Item__Image}
-                            className="d-block w-75"
+                            style={{
+                                width: 300,
+                                marginLeft: "auto",
+                                marginRight: "auto",
+                            }}
+                            className="d-block w-50"
                             src={items[0].image}
                             alt="First slide"
                         />
                     </Link>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item id={styles.FeaturedCarousel__Item2}>
                     <h2>Featured</h2>
-                    <h4>{items[1].title}</h4>
+                    <h5>{items[1].title}</h5>
                     <Link to={`/product/${items[1].id}`}>
                         <img
-                            className="d-block w-75"
+                            style={{
+                                width: 300,
+                                marginLeft: "auto",
+                                marginRight: "auto",
+                            }}
+                            className="d-block w-50"
                             src={items[1].image}
                             alt="Second slide"
                         />
                     </Link>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item id={styles.FeaturedCarousel__Item3}>
                     <h2>Featured</h2>
-                    <h4>{items[2].title}</h4>
+                    <h5>{items[2].title}</h5>
                     <Link to={`/product/${items[2].id}`}>
                         <img
-                            className="d-block w-75"
+                            style={{
+                                width: 300,
+                                marginLeft: "auto",
+                                marginRight: "auto",
+                            }}
+                            className="d-block w-50"
                             src={items[2].image}
                             alt="Third slide"
                         />

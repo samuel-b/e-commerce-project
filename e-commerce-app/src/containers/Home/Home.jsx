@@ -21,7 +21,9 @@ const Home = ({ items }) => {
             {filteredProducts.map((item) => {
                 return <ItemCard key={item.id} item={item} />;
             })}
-            <FeaturedCarousel items={items} />
+            <div className={styles.Home__FeaturedCarosel}>
+                <FeaturedCarousel items={items} />
+            </div>
         </div>
     );
 };

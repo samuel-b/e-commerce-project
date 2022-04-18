@@ -9,6 +9,30 @@ const CartList = ({ items, handleChange }) => {
         }),
     );
 
+    const [priceArray, setPriceArray] = useState(
+        cartItems.map((item) => {
+            return item.price;
+        }),
+    );
+
+    const [qtyArray, setQtyArray] = useState(
+        cartItems.map((item) => {
+            return Object.values(item.inCart).reduce((acc, currentValue) => {
+                return acc + currentValue;
+            });
+        }),
+    );
+
+    const [total, setTotal] = useState(0);
+
+    const test = () => {
+        let total = 0;
+        for (let i = 0; i < cartItems.length; i++) {
+            total += priceArray[i] * qtyArray[i];
+        }
+        return total.toFixed(2);
+    };
+
     useEffect(
         () => {
             setCartItems(
@@ -25,33 +49,41 @@ const CartList = ({ items, handleChange }) => {
         [cartItems],
     );
 
-    //    const [price, setPrice] = useState(
-    //         cartItems.reduce((previousValue, currentValue) => {
-    //             return previousValue.price + currentValue.price;
-    //         }),
-    //     );
+    useEffect(() => {
+        setQtyArray(
+            cartItems.map((item) => {
+                return Object.values(item.inCart).reduce(
+                    (acc, currentValue) => {
+                        return acc + currentValue;
+                    },
+                );
+            }),
+        );
 
-    // const [price, setPrice] = useState(0);
-    // useEffect(
-    //     () => {
-    //         setPrice(
-    //             cartItems.reduce((previousValue, currentValue) => {
-    //                 return previousValue.price + currentValue.price;
-    //             }),
-    //         );
-    //     },
-    //     [items],
-    //     [cartItems],
-    // );
+        setPriceArray(
+            cartItems.map((item) => {
+                return item.price;
+            }),
+        );
+    }, [cartItems]);
+
+    useEffect(() => {
+        setTotal(test());
+    }, [qtyArray]);
+
+    // if (!cartItems[0]) {
+    //     return;
+    // }
 
     return (
         <div className={styles.CartList}>
-            <h1>Shopping Cart</h1>
+            <h1 className={styles.CartList__Title}>Shopping Cart</h1>
             {cartItems.map((item, index) => {
                 return (
                     <Cart key={index} item={item} handleChange={handleChange} />
                 );
             })}
+            <h5 className={styles.CartList__Total}>{`Subtotal: $${total}`}</h5>
             <button className={styles.CartList__Button}>Checkout</button>
         </div>
     );
