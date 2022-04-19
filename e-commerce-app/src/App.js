@@ -24,7 +24,7 @@ function App() {
     useEffect(() => {
         getData();
     }, []);
-
+// Handler 
     const handleChange = async (updatedRecord) => {
         const { id, ...record } = updatedRecord;
         await updateItem(id, record);
