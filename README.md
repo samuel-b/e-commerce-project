@@ -1,6 +1,6 @@
 # e-commerce-project
 
-Link
+https://samuel-b.github.io/e-commerce-project/
 
 # Screenshots
 
