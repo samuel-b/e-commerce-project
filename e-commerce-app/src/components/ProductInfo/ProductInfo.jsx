@@ -18,7 +18,7 @@ const ProductInfo = ({ items, handleChange }) => {
     // When the global state variable 'items' is updated iterate through the items array and change the value of the item global state variable 'item' to the value of the item id, comparing item.id and params.itemId
     useEffect(() => {
         setItem(items.find((item) => item.id == params.itemId));
-    }, [items]);
+    }, [items, params.itemId]);
 
     //If item is a favourite use faHeartCircleCheck icon, otherwise faHeart.
     const favIcon = item.isFav ? faHeartCircleCheck : faHeart;

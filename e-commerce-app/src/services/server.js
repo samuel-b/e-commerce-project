@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import firestore from "../firebase.js";
 import mockData from "./mockData.js";
 

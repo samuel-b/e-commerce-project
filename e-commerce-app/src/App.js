@@ -24,7 +24,7 @@ function App() {
     useEffect(() => {
         getData();
     }, []);
-// Handler 
+    // Handler for the UPDATE CRUD operation.
     const handleChange = async (updatedRecord) => {
         const { id, ...record } = updatedRecord;
         await updateItem(id, record);
@@ -32,11 +32,10 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/e-commerce-project">
             <SearchProvider>
                 <NavBar />
                 <Routes>
-                    {/* Sets the home page/container at the root path and passes the items object to the home container as a prop */}
                     <Route path="/" element={<Home items={items} />} />
                     {/* Sets the product info component at the /product/param(item.id) path and passes the items object as a prop */}
                     <Route

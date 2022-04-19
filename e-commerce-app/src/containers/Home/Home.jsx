@@ -6,8 +6,9 @@ import FeaturedCarousel from "./../../components/FeaturedCarousel";
 
 const Home = ({ items }) => {
     const { search } = useContext(SearchContext);
+    //Initializes the filteredProducts array as the value of the items array
     const [filteredProducts, setFilteredProducts] = useState(items);
-
+    //When there is an update change the value of the filtered products array to a filtered array of objects that match the search term
     useEffect(() => {
         setFilteredProducts(
             items.filter((item) => {

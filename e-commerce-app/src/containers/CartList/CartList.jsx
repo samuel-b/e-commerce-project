@@ -3,18 +3,19 @@ import { useEffect, useState } from "react";
 import Cart from "./../../components/Cart";
 
 const CartList = ({ items, handleChange }) => {
+    //Returns an array of objects that have an inCartQty > 0
     const [cartItems, setCartItems] = useState(
         items.filter((item) => {
             return item.inCart.L > 0 || item.inCart.M > 0 || item.inCart.S > 0;
         }),
     );
-
+    //Returns an array of numbers (prices) of items in the cartItems array
     const [priceArray, setPriceArray] = useState(
         cartItems.map((item) => {
             return item.price;
         }),
     );
-
+    //Returns an array of numbers (qty) of items in the cartItems array
     const [qtyArray, setQtyArray] = useState(
         cartItems.map((item) => {
             return Object.values(item.inCart).reduce((acc, currentValue) => {
@@ -22,9 +23,9 @@ const CartList = ({ items, handleChange }) => {
             });
         }),
     );
-
+    //Used to track the total calue of qty * prices(the following function)
     const [total, setTotal] = useState(0);
-
+    //Loop through the qty and price array and times them for every iteration and return the fnal value
     const test = () => {
         let total = 0;
         for (let i = 0; i < cartItems.length; i++) {
@@ -32,7 +33,7 @@ const CartList = ({ items, handleChange }) => {
         }
         return total.toFixed(2);
     };
-
+    //Updates the cartItems array when there is a change
     useEffect(
         () => {
             setCartItems(
@@ -48,7 +49,7 @@ const CartList = ({ items, handleChange }) => {
         [items],
         [cartItems],
     );
-
+    //Updates the qtyArray and priceArray when there is a change
     useEffect(() => {
         setQtyArray(
             cartItems.map((item) => {
@@ -66,14 +67,14 @@ const CartList = ({ items, handleChange }) => {
             }),
         );
     }, [cartItems]);
-
-    useEffect(() => {
-        setTotal(test());
-    }, [qtyArray]);
-
-    // if (!cartItems[0]) {
-    //     return;
-    // }
+    //Updates the subtotal when there is a change
+    useEffect(
+        () => {
+            setTotal(test());
+        },
+        [qtyArray],
+        [test],
+    );
 
     return (
         <div className={styles.CartList}>

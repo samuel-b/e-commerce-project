@@ -1,10 +1,11 @@
 import styles from "./Cart.module.scss";
 
 const Cart = ({ item, handleChange }) => {
+    //Initialising variables as an empty string
     let sizeL = "";
     let sizeM = "";
     let sizeS = "";
-
+    //If an item is removed from the cart, update inCartQty - 1 and inStockQty + 1
     const handleRemoveLarge = () => {
         handleChange({
             ...item,
@@ -28,7 +29,7 @@ const Cart = ({ item, handleChange }) => {
             "inCart.S": item.inCart.S - 1,
         });
     };
-
+    //Only do this if the inCartQty > 0
     if (item.inCart.L > 0) {
         sizeL = (
             <>

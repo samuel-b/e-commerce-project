@@ -6,11 +6,11 @@ import { SearchContext } from "../../context/SearchContext";
 const SearchBar = () => {
     const [input, setInput] = useState("");
     const { search, setSearch } = useContext(SearchContext);
-
+    //Tracks the valaue in the input field
     const handleChange = (e) => {
         setInput(e.target.value);
     };
-
+    //On button-click set the valeu to the setSearch state variable to the final value in theinput field
     const handleClick = () => {
         setSearch(input);
         setInput("");

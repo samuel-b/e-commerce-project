@@ -1,4 +1,3 @@
-import styles from "./NavBar.module.scss";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
